@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="quankun J">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="quankun J">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>佛曰 · fi3ework&#39;s Studio</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">佛曰</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">fi3ework's Studio.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            佛曰
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="道理">道理</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="感悟">感悟</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">3.6k</span>阅读时长: <span class="post-count reading-time">11 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/06/09</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="佛曰"><a href="#佛曰" class="headerlink" title="佛曰"></a>佛曰</h2><p>佛曰: 为何不必?</p>
+<p>佛曰: 少欲，则少烦。</p>
+<p>佛曰: 一切皆虚幻。</p>
+<p>佛曰: 刹那便是永恒。</p>
+<p>佛曰: 不可说，不可说。</p>
+<p>佛曰: 色即是空，空即是色。</p>
+<p>佛曰: 我不入地狱，谁入地狱。</p>
+<p>佛曰: 人在荆棘中，不动不棘。</p>
+<p>佛曰: 救人一命，胜造七级浮屠。</p>
+<p>佛曰: 人无善恶，善恶存乎尔心。</p>
+<p>佛曰: 不可说，不可说，一说即使错。</p>
+<p>佛曰:大悲无泪，大悟无言，大笑无声。</p>
+<p>佛曰:种如是因，收如是果，一切唯心造。</p>
+<p>佛曰:一念愚即般若绝，一念智即般若生。</p>
+<p>佛曰:缘来则去，缘聚则散，缘起则生，缘落则灭。</p>
+<p>佛曰:苦海无涯，回头是岸。</p>
+<p>佛曰: 放下屠刀，立地成佛。</p>
+<p>佛曰:菩提本无树，明镜亦无台，世本无一物，何处染尘埃。</p>
+<p>佛曰:由爱故生忧，由爱故生怖，若离于爱着，无忧亦无怖。</p>
+<p>佛曰:静心守志，可会至道。譬如磨镜。垢去名存。断欲无求。当得宿命。</p>
+<p>佛曰:人生有八苦:生，老，病，死，爱别离，怨长久，求不得，放不下。</p>
+<p>佛曰:如人锻铁，去滓成器。器即精好。学道之人，去心垢染，行即清静矣。</p>
+<p>佛曰:羽化不是我的抉择，我也不是羽化的抉择，注定的眼睛，俯瞰着万物苍生。</p>
+<p>佛曰:财色于人，人之不舍。譬如刀刃有蜜，不足一餐之美。小儿舔之，则有割 舌之悲。</p>
+<p>佛曰:万发缘生，皆系缘分。</p>
+<p>佛曰:千灯万盏，不如心灯一盏。</p>
+<p>佛曰:如实知，如是见，如是信解而已。</p>
+<p>佛曰:一花一世界，一叶一菩提。</p>
+<p>佛曰:前世五遍年的回眸才换得今世的擦肩而过。</p>
+<p>佛曰:命由己造，相由心生，世间万物皆是化相，心不动，万物皆不动，心不变， 万物皆不<br>变。</p>
+<p>佛曰:笑着面对，不去埋怨。悠然，随心，随性，随缘。注定让一生改变的，只 在百年后，那一朵花开的时间。</p>
+<p>佛曰:爱别离，怨憎会，撒手西归，全无是类。不过是满眼空花，一片虚幻。</p>
+<p>佛曰:以物物物，则物可物;以物物非物，则物非物。物不得名之功，名不得物 之实，名物不实，是以物无物也。</p>
+<p>佛曰:宠辱不惊，看堂前花开花落;去留无意，望天上云卷云舒。佛曰:春来花自青，秋至叶飘零，无穷般若心自在，语默动静体自然。</p>
+<p>佛曰:将生命结束在爱人面前，瞬间的痛苦，永恒的幸福，无法抵挡的诱惑。</p>
+<p>佛曰:缘为冰，我将冰拥在怀中;冰化了，我才发现缘没了。 佛曰:人生在世如身处荆棘之中，心不动，人不妄动，不动则不伤;如心动，则人妄动，伤其身痛其骨，于是体会到世间诸般痛苦。</p>
+<p>佛曰:人本是人，不必刻意去做人;世本是世，无须精心去处世。</p>
+<p>佛曰:尽在不言中，只可意会，不可言传。</p>
+<p>佛曰:不为而为，机缘不成熟不可说，对象的根基不够不可说，顺其自然法则不 可说。</p>
+<p>佛曰:有因有缘集世间，有因有缘世间集;有因有缘灭世间，有因有缘世间灭。 ——《杂阿含经卷》</p>
+<p>佛曰:一切有为法。如梦幻泡影。如露亦如电。应作如是观。——金刚经</p>
+<p>佛曰:一切行无常，生者必有尽，不生则不死，此灭最为乐。——《增一阿含经》</p>
+<p>佛曰:我昔所造诸恶业，皆由无始贪瞋痴，从身语意之所生，一切我今皆忏悔。 ——《华严经》</p>
+<p>佛曰:我本因地，以念佛心，入无生忍，今于此界，摄念佛人，归于净土。佛问 圆通，我无选择，都摄六根，净念相继，得三摩地，斯为第一。——《楞严经》</p>
+<p>佛曰:诸法因缘生，我说是因缘;因缘尽故灭，我作如是说。——《造塔功德经》 佛曰:此有故彼有，此生故彼生;此无故彼无，此灭故彼灭。——《杂阿含经》</p>
+<p>佛曰:当舍于懈怠，远离诸愦闹;寂静常知足，是人当解脱。——《大宝积经》</p>
+<p>佛曰:凡所有相，皆是虚妄。若见诸相非相，则见如来。——《金刚经》</p>
+<p>佛曰:佛告阿难。汝常闻我毗奈耶中，宣说修行三决定义。所谓摄心为戒。因戒 生定。因定发慧。是则名为三无漏学。——《楞严经》 佛曰:若诸世界六道众生，其心不淫，则不随其生死相续。汝修三昧，本出尘劳。 淫心不除，尘不可出。——《楞严经》</p>
+<p>佛曰:若人造重罪，作已深自责;忏悔更不造，能拔根本业。——《佛为首迦长 者说业报差别经》</p>
+<p>佛曰:觉悟世间无常。国土危脆。四大苦空。五阴无我。生灭变异。虚伪无主。 心是恶源。形为罪薮。如是观察。渐离生死。——《佛说八大人觉经》</p>
+<p>佛曰:归元性无二，方便有多门。——《楞严经》 佛曰:众生以十事为善，亦以十事为恶。何等为十?身三、口四、意三。身三者， 杀盗淫。口四者，两舌、恶口、妄言、绮语。意三者，嫉恚痴。如是十事，不顺 圣道，名十恶行。是恶若止，名十善行耳。</p>
+<p>佛曰:执着如渊，是渐入死亡的沿线。</p>
+<p>佛曰:执着如尘，是徒劳的无功而返。</p>
+<p>佛曰:执着如泪，是滴入心中的破碎，破碎而飞散 。</p>
+<p>佛曰:生不识魂!死不认尸。</p>
+<p>佛曰:心静能平万物，万物归一，事事随心。</p>
+<p>佛曰:心清自然凉，心诚自然灵。 佛曰:知错能改，善莫大焉。</p>
+<p>佛曰:善恶一念之间。</p>
+<p>佛曰:祸往者福来。</p>
+<p>佛曰:无色无相，无嗔无狂。</p>
+<p>佛曰:忘记并不等于从未存在，一切自在来源于选择，而不是刻意。不如放手，放下的越多，越觉得拥有的更多。</p>
+<p>佛曰:坐亦禅，行亦禅，一花一世界，一叶一如来，春来花自青，秋至叶飘零，无穷般若心自在，语默动静体自然。</p>
+<p>佛曰:刹那便是永恒(若人生了悟如佛，无悲无喜无梦无幻，无爱无恨四大皆空， 生与死又有何区别。不能了，不能悟，不能舍，不能弃，参不透，舍不得。</p>
+<p>佛曰:睹人施道。助之欢善。得福甚大。</p>
+<p>佛曰:人有二十难:<br>贫穷布施难。豪贵学道难。<br>弃命必死难。得睹佛经难。<br>生值佛世难。忍色忍欲难。<br>见好不求难。被辱不镇难。<br>有劫不临难。触事无心难。<br>广学博究难。除灭我慢难。<br>不轻未学难。心行平等难。<br>不说是非难。会善知识难。<br>见性学道难。随化度人难。<br>睹境不动难。善解方便难。</p>
+<p>佛曰:吾法念无念念，行无行行，言无言言，修无修修，会者近尔，迷者远乎， 言语道断，非 物所拘，差之毫厘，失之须臾。</p>
+<p>佛曰:要学会宽恕，要学会放下。学会放弃，学会放下，学会宽恕别人，也是对 自己的一种解脱。只有宽恕，放下，才能以更好的姿态继续向前生活。如果不原 谅他人的过错是，心灵就会被怨恨所占据发，最终受伤害的还是我们自己。</p>
+<p>佛曰:心已平静 有如止水 佛曰:轮回中，心若一动，便已千年。既然我再也无 法感受到心动的感觉，我的心已平静有如止水，不如斩断情丝，阪依我佛。</p>
+<p>佛曰:大怀爱欲。不见道者。譬如澄水。致手搅之。众人共临。无有睹其影者。 人以爱欲交错。心中浊兴。故不见道。汝等沙门。当舍爱欲。爱欲垢尽。道可见 矣。</p>
+<p>佛曰:人之所以痛苦，在于追求错误的东西。 佛曰:别说别人可怜，自己更可怜，自己修行又如何?自己又懂得人生多少。</p>
+<p>佛曰:学佛是对自己的良心交待，不是做给别人看的。 佛曰:福报不够的人，就会常常听到是非;福报够的人，从来就没听到过是非。 佛曰:在顺境中修行，永远不能成佛。</p>
+<p>佛曰:你永远要感谢给你逆境的众生。</p>
+<p>佛曰:你随时要认命，因为你是人。</p>
+<p>佛曰:你要包容那些意见跟你不同的人，这样子日子比较好过。你要是一直想改 变他，那样子你会很痛苦。要学学怎样忍受他才是。你要学学怎样包容他才是。</p>
+<p>佛曰:修行就是修正自己错误的观念。</p>
+<p>佛曰:忌妒别人，不会给自己增加任何的好处。忌妒别人，也不可能减少别人的 成就。</p>
+<p>佛曰:永远不要浪费你的一分一秒，去想任何你不喜欢的人。</p>
+<p>佛曰:多少人要离开这个世间时，都会说出同一句话，这世界真是无奈与凄凉啊!</p>
+<p>佛曰:恋爱不是慈善事业，不能随便施舍的。感情是没有公式，没有原则，没有 道理可循的。可是人们至死都还在执著与追求。</p>
+<p>佛曰:是诸法空相，不生不灭，不垢不净，不增不减。</p>
+<p>佛曰:空中无色，无受想行识，无眼耳鼻舌身意，无色声香味触法，无眼界，乃 至无意识界。无无明，亦无无明尽，乃至无老死，亦无老死尽。</p>
+<p>佛曰:过去心不可得，现在心不可得，未来心不可得。</p>
+<p>佛曰:一切有为法，如梦幻泡影，如露亦如电，应作如是观。</p>
+<p>佛曰:应如是生清净心，不应住色生心，不应住声香味触法生心，应无所住而生 其心。</p>
+<p>佛曰:如来所得法，此法无实无虚。</p>
+<p>佛曰:若菩萨有我相、人相、众生相、寿者相，即非菩萨。</p>
+<p>佛曰:若以色见我，以音声求我，是人行邪道，不能见如来。</p>
+<p>佛曰:所作福德，不应贪著。</p>
+<p>佛曰:如来者，无所从来，亦无所去，故名如来。</p>
+<p>佛曰:离一切诸相，则名诸佛。</p>
+<p>佛曰:善男子!譬如一灯，入于暗室;百千年暗，悉能破尽。菩萨摩诃萨菩提心灯， 亦複如是;入于众生心室，百千万亿不可说劫，诸烦恼业，种种暗障，悉能除尽。</p>
+<p>佛曰:一切众生，皆俱如来智慧德相，但因妄想执着，不能证得。</p>
+<p>佛曰:欲为诸佛龙象，先做众生马牛。</p>
+<p>佛曰:往昔所造诸恶业，皆由无始贪嗔痴，从身语意之所生，一切我今皆忏悔。</p>
+<p>佛曰:奇哉奇哉，大地众生皆有智慧德相，但以妄想分别执著，而不能证得。</p>
+<p>佛曰:净心水器，莫不影显，常现在前;但器浊心之人生，不见如来法身之影。</p>
+<p>佛曰:修行善知识教，诸佛世尊悉皆欢喜;其有随顺善知识语，则得近于一切智地; 其有能于善知识语无疑惑者，则常值遇一切善友;其有发心愿常不离善知识者， 则得具足一切义利。</p>
+<p>佛曰:莫厌离善知识语，善知识者能引导汝至无险难安隐之处。菩萨善巧方便智 不可思议，摄受众生智不可思议，护念众生智不可思议，成熟众生智不可思议， 守护众生智不可思议，度脱众生智不可思议，调伏众生智不可思议。</p>
+<p>佛曰:应发不可坏心，灭诸烦恼;应发无能胜心，破诸取著;应发无退怯心，入深 法门;应发能堪耐心，救恶众生;应发无迷惑心，普于一切诸趣受生;应发无厌足心， 求见诸佛无有休息;应发无知足心，悉受一切如来法雨;应发正思惟心，普生一切 佛法光明;应发大住持心，普转一切诸佛法轮;应发广流通心，随众生欲施其法宝。</p>
+<p>佛曰:人身难得，如优昙花。得人身者，如爪上土;失人身者，如大地土。</p>
+<p>佛曰:人身难得今已得，佛法难闻今已闻，此身不向今生度，更待何时度此身?</p>
+<p>佛曰:善护口业，不讥他过;善护身业，不犯律仪;善护意业， 清净无染。</p>
+<p>佛曰:诸恶莫作，诸善奉行;自净其意，是诸佛教。 佛曰:三界无安,犹如火宅。众苦充满,甚可怖畏。</p>
+<p>佛曰:佛前有花，名优昙花，一千年出芽，一千年生苞，一千年开花，弹指即谢， 刹那芳华。</p>
+<p>佛曰:若诸菩萨为化众生，常入聚落，不择时节。或至寡妇、淫女舍宅，与同住 止，经历多年。若是声闻所不应为，是名调伏利益众生。</p>
+<p>佛曰:世有二人甚为希有如优昙花。一者不行恶法。二者有罪能悔。如是之人甚 为希有。</p>
+<p>佛曰:我常说空法，远离于断常。生死如幻梦，而业亦不坏。虚空及涅槃，灭度 亦如是;愚夫妄分别，诸圣离有无。</p>
+<p>佛曰:虽自性清净，客尘所覆，故犹见不净，非诸如来。</p>
+<p>佛曰:出世间上上波罗蜜者，谓菩萨摩诃萨于自心二法了知惟是分别所现，不起 妄想，不生执著，不取色相，为欲利乐一切众生，而恒修檀波罗蜜。</p>
+<p>佛曰:离种种心寂然不动，心海不起，转识波浪，了境心现，皆无所有，是名入三昧乐意成身。</p>
+<p>佛曰:实义者微妙寂静是涅槃因，言说者与妄想合流转生死。</p>
+<p>佛曰:此如来藏藏识本性清静，客尘所染而为不净。</p>
+<p>佛曰:诸修多罗随顺一切众生心说，而非真实在言中。</p>
+<p>问曰:为何人有善恶之分?</p>
+<p>佛曰:人无善恶，善恶存乎尔心。</p>
+<p>问曰:如何能静?如何能常?</p>
+<p>佛曰:寻找自我。</p>
+<p>问曰:世间为何多苦恼?</p>
+<p>佛曰:只因不识自我。</p>
+<p>问曰:人为何而活?</p>
+<p>佛曰:寻根。</p>
+<p>问曰:何谓寻根?</p>
+<p>佛曰:不可说。</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://qkloveslife.github.io">quankun J</a>
+            </p><p>原文链接：<a href="https://qkloveslife.github.io/2019/06/09/佛曰/">https://qkloveslife.github.io/2019/06/09/佛曰/</a>
+            </p><p>发表日期：<a href="https://qkloveslife.github.io/2019/06/09/佛曰/">June 9th 2019, 11:33:39 pm</a>
+            </p><p>更新日期：<a href="https://qkloveslife.github.io/2019/06/09/佛曰/">June 9th 2019, 11:58:37 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/06/09/弟子规/" title="弟子规">
+                    <div class="nextTitle">弟子规</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/06/09/hello-world/" title="Hello World">
+                    <div class="prevTitle">Hello World</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title="wechat">
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png">
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#佛曰"><span class="toc-number">1.</span> <span class="toc-text">佛曰</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 3
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/佛曰/">佛曰</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/弟子规/">弟子规</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/hello-world/">Hello World</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="教养"><span class="iconfont-archer">&#xe606;</span>教养</span>
+    
+        <span class="sidebar-tag-name" data-tags="规矩"><span class="iconfont-archer">&#xe606;</span>规矩</span>
+    
+        <span class="sidebar-tag-name" data-tags="道理"><span class="iconfont-archer">&#xe606;</span>道理</span>
+    
+        <span class="sidebar-tag-name" data-tags="感悟"><span class="iconfont-archer">&#xe606;</span>感悟</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="传统文化"><span class="iconfont-archer">&#xe60a;</span>传统文化</span>
+    
+        <span class="sidebar-category-name" data-categories="人生感悟"><span class="iconfont-archer">&#xe60a;</span>人生感悟</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "quankun J"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
